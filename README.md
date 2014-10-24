@@ -26,7 +26,6 @@ The configuration and code required are maintain with the Roxy framework
 
 Deployment in MarkLogic has the following steps:
 * `ml local bootstrap`
-* `ml local init cpf`
 * `ml local deploy modules`
 * `ml local deploy cpf`
 * `ml local deploy_alerting`
