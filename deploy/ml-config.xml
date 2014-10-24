@@ -140,6 +140,7 @@
         <forest-id name="@ml.content-db"/>
         @ml.forest-data-dir-xml
       </forests>
+      <triple-index>true</triple-index>
       <uri-lexicon>true</uri-lexicon>
       <collection-lexicon>true</collection-lexicon>
       <directory-creation>manual</directory-creation>
