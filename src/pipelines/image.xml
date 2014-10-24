@@ -1,0 +1,57 @@
+<pipeline xmlns="http://marklogic.com/cpf/pipelines">
+	<pipeline-name>Image Metadata Pipeline</pipeline-name> 
+	<pipeline-description>Pipeline to extract image metadata</pipeline-description> 
+	
+	<success-action>
+		<module>/MarkLogic/cpf/actions/success-action.xqy</module> 
+	</success-action>
+	<failure-action>
+		<module>/MarkLogic/cpf/actions/failure-action.xqy</module> 
+	</failure-action>
+
+	<state-transition>
+  		<annotation>
+			When a JPEG binary is inserted in the database, the metadata is
+			extracted and saved to XML.
+		</annotation> 
+		<state>http://marklogic.com/states/initial</state> 
+		<on-success>http://marklogic.com/states/done</on-success> 
+		<on-failure>http://marklogic.com/states/error</on-failure>  
+		<priority>6500</priority>
+		<execute>
+			<condition> 
+				<module>/MarkLogic/cpf/actions/mimetype-condition.xqy</module> 
+				<options xmlns="/MarkLogic/cpf/actions/mimetype-condition.xqy">
+					<mime-type>image/jpeg</mime-type>
+				</options>
+   			</condition>
+    		<action>
+      			<module>/pipelines/update-image.xqy</module>
+    		</action>
+  		</execute>
+	</state-transition>
+	
+	
+	<state-transition>
+  		<annotation>
+			When a JPEG binary is updated in the database, the metadata is
+			extracted and saved to XML.
+		</annotation> 
+		<state>http://marklogic.com/states/updated</state> 
+		<on-success>http://marklogic.com/states/done</on-success> 
+		<on-failure>http://marklogic.com/states/error</on-failure> 
+		 <priority>6500</priority>
+		<execute>
+			<condition> 
+				<module>/MarkLogic/cpf/actions/mimetype-condition.xqy</module> 
+				<options xmlns="/MarkLogic/cpf/actions/mimetype-condition.xqy">
+					<mime-type>image/jpeg</mime-type>
+				</options>
+   			</condition>
+    		<action>
+      			<module>/pipelines/update-image.xqy</module>
+    		</action>
+  		</execute>
+	</state-transition>
+	
+</pipeline>

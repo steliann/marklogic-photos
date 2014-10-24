@@ -1,0 +1,59 @@
+<config xmlns="http://marklogic.com/roxy/cpf">
+  <domains>
+    <domain>
+      <name>Photos Content</name>
+      <description>This domain contains JPEG data</description>
+      <pipelines>
+        <pipeline>/pipelines/image.xml</pipeline>
+      </pipelines>
+      <system-pipelines>
+        <system-pipeline>Status Change Handling</system-pipeline>
+      </system-pipelines>
+      <scope>
+        <type>directory</type>
+        <uri>/image/</uri>
+        <depth>infinity</depth>
+      </scope>
+      <context>
+        <modules-database>@ml.modules-db</modules-database>
+        <root>/</root>
+      </context>
+      <restart-user>@ml.app-name-user</restart-user>
+      <!-- Permissions are optional -->
+      <permissions>
+        <permission>
+          <capability>execute</capability>
+          <role-name>@ml.app-role</role-name>
+        </permission>
+      </permissions>
+    </domain>
+    <domain>
+      <name>Photos Metadata</name>
+      <description>This domain contains photos metadata</description>
+      <pipelines>
+        <pipeline>/pipelines/metadata.xml</pipeline>
+      </pipelines>
+      <system-pipelines>
+        <system-pipeline>Status Change Handling</system-pipeline>
+        <system-pipeline>Alerting</system-pipeline>
+      </system-pipelines>
+      <scope>
+        <type>directory</type>
+        <uri>/metadata/</uri>
+        <depth>infinity</depth>
+      </scope>
+      <context>
+        <modules-database>@ml.modules-db</modules-database>
+        <root>/</root>
+      </context>
+      <restart-user>@ml.app-name-user</restart-user>
+      <!-- Permissions are optional -->
+      <permissions>
+        <permission>
+          <capability>execute</capability>
+          <role-name>@ml.app-role</role-name>
+        </permission>
+      </permissions>
+    </domain>
+  </domains>
+</config>

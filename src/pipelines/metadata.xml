@@ -1,0 +1,62 @@
+<pipeline xmlns="http://marklogic.com/cpf/pipelines">
+	<pipeline-name>Metadata Pipeline</pipeline-name> 
+	<pipeline-description>
+		Pipeline to extract geo locations from city names. 
+		It uses DBpedia to get the latitude and longitude in wgs84 format.
+	</pipeline-description> 
+	
+	<success-action>
+		<module>/MarkLogic/cpf/actions/success-action.xqy</module> 
+	</success-action>
+	<failure-action>
+		<module>/MarkLogic/cpf/actions/failure-action.xqy</module> 
+	</failure-action>
+
+	<state-transition>
+  		<annotation>
+			When a JPEG metadata document is inserted in the database, the geo locations 
+			for the city are extracted from DBpedia and saved to XML.
+		</annotation> 
+		<state>http://marklogic.com/states/initial</state> 
+		<on-success> http://marklogic.com/states/entities/enriched</on-success> 
+		<on-failure>http://marklogic.com/states/error</on-failure>  
+		<priority>7000</priority>
+		<execute>
+			<condition>  
+				<module>/MarkLogic/cpf/actions/namespace-condition.xqy</module> 
+				<options xmlns="/MarkLogic/cpf/actions/namespace-condition.xqy">
+        			<root-element>photo</root-element>
+        			<namespace/>
+      			</options>
+   			</condition>
+    		<action>
+      			<module>/pipelines/update-metadata.xqy</module>
+    		</action>
+  		</execute>
+	</state-transition>
+	
+	
+	<state-transition>
+  		<annotation>
+			When a JPEG metadata document is updated in the database, the geo locations 
+			for the city are extracted from DBpediaand saved to XML.
+		</annotation> 
+		<state>http://marklogic.com/states/updated</state> 
+		<on-success> http://marklogic.com/states/entities/enriched</on-success> 
+		<on-failure>http://marklogic.com/states/error</on-failure>  
+		<priority>7000</priority>
+		<execute>
+			<condition> 
+				<module>/MarkLogic/cpf/actions/namespace-condition.xqy</module> 
+				<options xmlns="/MarkLogic/cpf/actions/namespace-condition.xqy">
+        			<root-element>photo</root-element>
+        			<namespace/>
+      			</options>
+   			</condition>
+    		<action>
+      			<module>/pipelines/update-metadata.xqy</module>
+    		</action>
+  		</execute>
+	</state-transition>
+	
+</pipeline>

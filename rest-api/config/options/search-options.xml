@@ -1,0 +1,94 @@
+<options xmlns="http://marklogic.com/appservices/search">
+  <constraint name="title">
+    <element-query ns="" name="title" />
+  </constraint>
+  <constraint name="description">
+    <element-query ns="" name="description" />
+  </constraint>
+  <constraint name="author">
+    <range type="xs:string" collation="http://marklogic.com/collation/" facet="true">
+      <element ns="" name="author" />
+      <facet-option>frequency-order</facet-option>
+      <facet-option>descending</facet-option>
+    </range>
+  </constraint>
+  <constraint name="country">
+    <range type="xs:string" collation="http://marklogic.com/collation/" facet="true">
+      <element ns="" name="country" />
+      <facet-option>frequency-order</facet-option>
+      <facet-option>descending</facet-option>
+    </range>
+  </constraint>
+  <constraint name="city">
+    <range type="xs:string" collation="http://marklogic.com/collation/" facet="true">
+      <element ns="" name="city" />
+      <facet-option>frequency-order</facet-option>
+      <facet-option>descending</facet-option>
+    </range>
+  </constraint>
+  <constraint name="year">
+  	<range type="xs:int">
+    	<facet-option>ascending</facet-option>
+    	<element ns="" name="year" />
+    	<bucket name="any-1900" lt="1900">-1900</bucket>
+	  	<bucket name="1900-1909" ge="1900" lt="1910">1900-1909</bucket>
+	  	<bucket name="1900-1909" ge="1910" lt="1920">1910-1919</bucket>
+	  	<bucket name="1920-1929" ge="1920" lt="1930">1920-1929</bucket>
+	  	<bucket name="1930-1939" ge="1930" lt="1940">1930-1939</bucket>
+	  	<bucket name="1940-1949" ge="1940" lt="1950">1940-1949</bucket>
+	  	<bucket name="1950-1959" ge="1950" lt="1960">1950-1959</bucket>
+	  	<bucket name="1960-1969" ge="1960" lt="1970">1960-1969</bucket>
+	  	<bucket name="1970-1979" ge="1970" lt="1980">1970-1979</bucket>
+	  	<bucket name="1980-1989" ge="1980" lt="1990">1980-1989</bucket>
+	  	<bucket name="1990-1999" ge="1990" lt="2000">1990-1999</bucket>
+	  	<bucket name="2000-2009" ge="2000" lt="2010">2000-2009</bucket>
+	  	<bucket name="2010-any" ge="2010">2010-</bucket>
+    </range>
+  </constraint>
+  <constraint name="continent">
+    <custom>
+      <parse apply="parse" ns="http://snastase.com/geo" at="/constraint/geo-constraint.xqy"/>
+	  <start-facet apply="start-facet" ns="http://snastase.com/geo" at="/constraint/geo-constraint.xqy"/>
+      <finish-facet apply="finish-facet" ns="http://snastase.com/geo" at="/constraint/geo-constraint.xqy"/>
+      <annotation>
+      	<regions>
+		  <region label="Africa">africa</region> 
+		  <region label="Antartica">antartica</region> 
+		  <region label="Asia">asia</region> 
+		  <region label="Australia">australia</region> 
+		  <region label="Europe">europe</region> 
+		  <region label="North America">north_america</region> 
+		  <region label="South America">south_america</region>  
+        </regions>
+      </annotation>
+    </custom>
+  </constraint>
+  <operator name="sort">
+    <state name="relevance">
+    	<sort-order>
+          <score/>
+        </sort-order>
+    </state>
+	<state name="year-forward">
+        <sort-order direction="ascending" type="xs:int">
+          <element ns="" name="year"/>
+        </sort-order>
+        <sort-order>
+          <score/>
+        </sort-order>
+    </state>
+    <state name="year-backward">
+        <sort-order direction="descending" type="xs:int">
+          <element ns="" name="year"/>
+        </sort-order>
+        <sort-order>
+          <score/>
+        </sort-order>
+    </state>
+  </operator>
+  <return-facets>true</return-facets>
+  <extract-metadata>
+ 	<qname elem-ns="" elem-name="title"/>
+ 	<qname elem-ns="" elem-name="author"/>
+  </extract-metadata>
+</options>

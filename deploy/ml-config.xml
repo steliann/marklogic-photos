@@ -207,6 +207,55 @@
       </fields>
 -->
       <range-element-indexes>
+      
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri></namespace-uri>
+          <localname>tag</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+        </range-element-index>
+        
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri></namespace-uri>
+          <localname>title</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+        </range-element-index>
+        
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri></namespace-uri>
+          <localname>author</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+        </range-element-index>
+        
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri></namespace-uri>
+          <localname>country</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+        </range-element-index>
+        
+        <range-element-index>
+          <scalar-type>string</scalar-type>
+          <namespace-uri></namespace-uri>
+          <localname>city</localname>
+          <collation>http://marklogic.com/collation/</collation>
+          <range-value-positions>false</range-value-positions>
+        </range-element-index>
+        
+        <range-element-index>
+          <scalar-type>int</scalar-type>
+          <namespace-uri></namespace-uri>
+          <localname>year</localname>
+          <collation></collation>
+          <range-value-positions>false</range-value-positions>
+        </range-element-index>
+        
         <!--
         Sample for:
           <name xmlns="http://marklogic.com/ns/sample">bob<name>
@@ -282,6 +331,17 @@
       </geospatial-element-indexes>
 
       <geospatial-element-attribute-pair-indexes>
+      
+        <geospatial-element-attribute-pair-index>
+          <parent-namespace-uri></parent-namespace-uri>
+          <parent-localname>city</parent-localname>
+          <latitude-namespace-uri/>
+          <latitude-localname>latitude</latitude-localname>
+          <longitude-namespace-uri/>
+          <longitude-localname>longitude</longitude-localname>
+          <coordinate-system>wgs84</coordinate-system>
+          <range-value-positions>false</range-value-positions>
+        </geospatial-element-attribute-pair-index>
 <!--
         Sample for:
           <geo lat="37.237162" lon="-115.8099747" xmlns="http://marklogic.com/ns/sample"/>

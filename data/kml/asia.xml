@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml>
+<Document>
+	<name>asia.kml</name>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Asia</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Polygon>
+			<tessellate>1</tessellate>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>-217.5380598399762,76.99734451421678,0 -255.5709552223434,78.02980269614747,0 -296.341212259523,73.54649328972158,0 -307.293665004504,64.351541880073,0 -313.0745190874548,48.19172949650671,0 -320.9100288670906,27.57675135771911,0 -315.5833719363042,18.97804531686566,0 -303.2090441521958,16.08117310947916,0 -284.2243792604429,4.688128083008317,0 -270.3575341421764,5.435021680237878,0 -253.4184917217128,-6.743934826721095,0 -241.3925740958821,-3.511854300191038,0 -235.1441881831945,10.99591846245084,0 -225.12657793597,29.71464057333822,0 -211.3928026550088,42.25616587828529,0 -192.5337469357801,49.48817232063649,0 -177.0799379595765,68.15850699144566,0 -217.5380598399762,76.99734451421678,0 </coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

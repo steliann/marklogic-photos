@@ -1,0 +1,5 @@
+<rapi:patch xmlns:rapi="http://marklogic.com/rest-api">
+	<rapi:replace select="/photo/name">
+		<name>Juvisny, France, 1938</name>
+	</rapi:replace>
+</rapi:patch>

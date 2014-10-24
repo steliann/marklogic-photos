@@ -1,0 +1,5 @@
+<rapi:patch xmlns:rapi="http://marklogic.com/rest-api">
+	<rapi:insert context="/photo/tags" position="last-child">
+		<tag>winter</tag>
+	</rapi:insert>
+</rapi:patch>
