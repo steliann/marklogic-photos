@@ -140,6 +140,8 @@
         <forest-id name="@ml.content-db"/>
         @ml.forest-data-dir-xml
       </forests>
+      <stemmed-searches>advanced</stemmed-searches>
+      <word-searches>true</word-searches>
       <triple-index>true</triple-index>
       <uri-lexicon>true</uri-lexicon>
       <collection-lexicon>true</collection-lexicon>
