@@ -1,3 +1,0 @@
-<rapi:patch xmlns:rapi="http://marklogic.com/rest-api">
-	<rapi:delete select="/photo/tags/tag[1]" />
-</rapi:patch>

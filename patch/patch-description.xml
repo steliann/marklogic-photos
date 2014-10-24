@@ -1,5 +1,0 @@
-<rapi:patch xmlns:rapi="http://marklogic.com/rest-api">
-	<rapi:replace select="/photo/description">
-		<description>In 1937, Cartier-Bresson took his first (and last) salaried job, with the leftwing Paris daily, Ce Soir. During this period, he took an assignment to illustrate a campaign to win more vacation time for workers. The shoot included this frame, now considered one of the his classic images, though the editors who assigned him, apparently did not see it that way. Their spreads on the story did not include it.</description>
-	</rapi:replace>
-</rapi:patch>

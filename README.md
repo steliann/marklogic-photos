@@ -1,5 +1,5 @@
-# Magnum Photos
-Magnum Photos is a web site where the most fascinating black and white photos are presented. 
+# B&W Garden
+B&W Garden is a web site where the most fascinating black and white photos are presented. 
 Photographers collections are shown together with text description for every photo.
 
 At this stage the application is able to browse through preloaded photos. The user can 
